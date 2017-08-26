@@ -15,4 +15,16 @@ class PropertiesHandler {
         preferences = context.getApplicationContext().getSharedPreferences(name, Context.MODE_PRIVATE);
     }
 
+    public String get(String key, String defaultValue) {
+        return preferences.getString(key, defaultValue);
+    }
+
+    public String get(String key) {
+        return get(key, null);
+    }
+
+    public void set(String key, String value) {
+        preferences.edit().putString(key, value).apply();
+    }
+
 }
