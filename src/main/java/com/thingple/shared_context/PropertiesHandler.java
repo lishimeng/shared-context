@@ -11,8 +11,10 @@ class PropertiesHandler {
 
     SharedPreferences preferences = null;
 
+    private static int MODE = Context.MODE_WORLD_WRITEABLE | Context.MODE_WORLD_READABLE| Context.MODE_MULTI_PROCESS;
+
     PropertiesHandler(Context context, String name) {
-        preferences = context.getSharedPreferences(name, Context.MODE_PRIVATE);
+        preferences = context.getSharedPreferences(name, MODE);
     }
 
     public String get(String key, String defaultValue) {
