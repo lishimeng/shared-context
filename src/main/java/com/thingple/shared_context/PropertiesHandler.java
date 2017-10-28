@@ -12,7 +12,7 @@ class PropertiesHandler {
     SharedPreferences preferences = null;
 
     PropertiesHandler(Context context, String name) {
-        preferences = context.getApplicationContext().getSharedPreferences(name, Context.MODE_PRIVATE);
+        preferences = context.getSharedPreferences(name, Context.MODE_PRIVATE);
     }
 
     public String get(String key, String defaultValue) {
@@ -24,7 +24,7 @@ class PropertiesHandler {
     }
 
     public void set(String key, String value) {
-        preferences.edit().putString(key, value).apply();
+        preferences.edit().putString(key, value).commit();
     }
 
 }
